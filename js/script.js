@@ -15,15 +15,26 @@ let elContainer = document.querySelector('.container')
 let box;
 let secondPartGame = document.getElementById('user-choice')
 let elUserChoise = document.getElementById('btn-user-choice')
+let arrayPC =[];
+let arrayComparation = [];
 button.addEventListener('click', play );
-secondPartGame.addEventListener('click', function(e) {
-    e.stopPropagation();
-    let userNumbers = document.querySelectorAll('#user-choice>input')
-    console.log(userNumbers);
-    for (let index = 0; index < userNumbers.length; index++) {
-        const number = userNumbers[index].value;
-        console.log(number);
+
+elUserChoise.addEventListener('click', function() {
+    let userNumbers = document.querySelectorAll('#user-choice>div>input')
+    console.log(arrayPC);
+    for (let i = 0; i < userNumbers.length; i++){
+        console.log(userNumbers[i].value)
+        // if (userNumbers[i].value == arrayPC[i]){
+        //     let correct = userNumbers[i].value
+        //     arrayComparation.push(correct);
+        //     console.log(correct)
+        // }
     }
+    console.log(`hai indovinato ${arrayComparation.length} numeri; i numeri indovinati sono ${arrayComparation}`)
+    // for (let index = 0; index < userNumbers.length; index++) {
+    //     const number = userNumbers[index].value;
+    //     console.log(number);
+    // }
     
 });
 
@@ -33,7 +44,7 @@ secondPartGame.addEventListener('click', function(e) {
 
 function play() {
     elContainer.innerHTML = '';
-    let arrayPC = (randomNotInArray(1, 100, 5 ));
+    arrayPC = (randomNotInArray(1, 100, 5 ));
     setTimeout (hideNumbers, 5000);
     setTimeout (showSecondButton, 5000);  
 }
@@ -53,7 +64,13 @@ function hideNumbers() {
     boxes[i].innerHTML = '?'
     }
 }
-
+/**
+ * Function 
+ * @param {*} min 
+ * @param {*} max 
+ * @param {*} myarrayLenght 
+ * @returns 
+ */
 function randomNotInArray(min, max, myarrayLenght) {
     let myarray = []
     while (myarray.length < myarrayLenght) {
