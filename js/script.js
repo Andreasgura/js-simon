@@ -11,22 +11,26 @@ Consigli del giorno:
 
 let text = document.getElementById('text');
 let button = document.querySelector('.btn');
-
-/*button.addEventListener('click', function(){
-   
-});
-*/
+let elContainer = document.querySelector('.container')
+let box;
+let secondPartGame = document.getElementById('user-choice')
+let elUserChoise = document.getElementById('btn-user-choice')
+button.addEventListener('click', play );
+secondPartGame.addEventListener('click', receiveUserNumbers );
 
 /*
 
 */
 
-let elContainer = document.querySelector('.container')
-let box;
-let array5 = (randomNotInArray(1, 100, 5 )) 
-console.log(box);
-setTimeout (hideNumbers, 5000)
-
+function play() {
+    elContainer.innerHTML = '';
+    let arrayPC = (randomNotInArray(1, 100, 5 ));
+    setTimeout (hideNumbers, 5000);
+    setTimeout (showSecondButton, 5000);  
+}
+function receiveUserNumbers() {
+    
+}
 
 function hideNumbers() {
     const boxes = document.querySelectorAll('.box');
@@ -49,4 +53,8 @@ function randomNotInArray(min, max, myarrayLenght) {
     }
 
     return myarray;
+};
+
+function showSecondButton () {
+    secondPartGame.classList.remove('invisible')
 };
