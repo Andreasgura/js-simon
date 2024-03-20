@@ -18,14 +18,22 @@ let button = document.querySelector('.btn');
 */
 
 /*
-creare una fz che genera un num casuale tra min e max
-creare altra fz, che dato un array, generi numeri casuali non inclusi nello stesso 
 
-ripetere l'operazione fin quando l'array non avrà raggiunto la lunghezza desiderata
 */
 
+let elContainer = document.querySelector('.container')
+let box;
 let array5 = (randomNotInArray(1, 100, 5 )) 
-console.log(array5)
+console.log(box);
+setTimeout (hideNumbers, 5000)
+
+
+function hideNumbers() {
+    const boxes = document.querySelectorAll('.box');
+    for(let i = 0; i < boxes.length; i ++) {
+    boxes[i].innerHTML = '?'
+    }
+}
 
 function randomNotInArray(min, max, myarrayLenght) {
     let myarray = []
@@ -34,8 +42,11 @@ function randomNotInArray(min, max, myarrayLenght) {
         if (!myarray.includes(number)) {
             myarray.push(number)
         }
+        box = document.createElement('div')
+        box.classList.add('box')
+        box.innerHTML = number
+        elContainer.appendChild(box)
     }
-    
-    
-return myarray;
+
+    return myarray;
 };
