@@ -17,3 +17,25 @@ let button = document.querySelector('.btn');
 });
 */
 
+/*
+creare una fz che genera un num casuale tra min e max
+creare altra fz, che dato un array, generi numeri casuali non inclusi nello stesso 
+
+ripetere l'operazione fin quando l'array non avrà raggiunto la lunghezza desiderata
+*/
+
+let array5 = (randomNotInArray(1, 100, 5 )) 
+console.log(array5)
+
+function randomNotInArray(min, max, myarrayLenght) {
+    let myarray = []
+    while (myarray.length < myarrayLenght) {
+        let number = getRndInteger(min, max)
+        if (!myarray.includes(number)) {
+            myarray.push(number)
+        }
+    }
+    
+    
+return myarray;
+};
