@@ -16,7 +16,16 @@ let box;
 let secondPartGame = document.getElementById('user-choice')
 let elUserChoise = document.getElementById('btn-user-choice')
 button.addEventListener('click', play );
-secondPartGame.addEventListener('click', receiveUserNumbers );
+secondPartGame.addEventListener('click', function(e) {
+    e.stopPropagation();
+    let userNumbers = document.querySelectorAll('#user-choice>input')
+    console.log(userNumbers);
+    for (let index = 0; index < userNumbers.length; index++) {
+        const number = userNumbers[index].value;
+        console.log(number);
+    }
+    
+});
 
 /*
 
@@ -28,9 +37,15 @@ function play() {
     setTimeout (hideNumbers, 5000);
     setTimeout (showSecondButton, 5000);  
 }
-function receiveUserNumbers() {
-    
-}
+// function receiveUserNumbers(event) {
+//     let userNumbers = document.querySelectorAll('#user-choice>input')
+//     console.log(userNumbers);
+//     for (let index = 0; index < userNumbers.length; index++) {
+//         const number = userNumbers[index].value;
+//         console.log(number);
+//     }
+//     event.stopPropagation();
+// }
 
 function hideNumbers() {
     const boxes = document.querySelectorAll('.box');
