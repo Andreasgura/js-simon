@@ -23,14 +23,14 @@ elUserChoise.addEventListener('click', function() {
     let userNumbers = document.querySelectorAll('#user-choice>div>input')
     console.log(arrayPC);
     for (let i = 0; i < userNumbers.length; i++){
-        console.log(userNumbers[i].value)
-        // if (userNumbers[i].value == arrayPC[i]){
-        //     let correct = userNumbers[i].value
-        //     arrayComparation.push(correct);
-        //     console.log(correct)
-        // }
+        
+        if (parseInt(userNumbers[i].value) == arrayPC[i]){
+            let correct = userNumbers[i].value
+            arrayComparation.push(correct);
+            console.log(correct)
+        }
     }
-    console.log(`hai indovinato ${arrayComparation.length} numeri; i numeri indovinati sono ${arrayComparation}`)
+    console.log(`hai indovinato ${arrayComparation.length} numeri; i numeri indovinati sono :/" ${arrayComparation} "/`)
     // for (let index = 0; index < userNumbers.length; index++) {
     //     const number = userNumbers[index].value;
     //     console.log(number);
@@ -77,11 +77,12 @@ function randomNotInArray(min, max, myarrayLenght) {
         let number = getRndInteger(min, max)
         if (!myarray.includes(number)) {
             myarray.push(number)
+            box = document.createElement('div')
+            box.classList.add('box')
+            box.innerHTML = number
+            elContainer.appendChild(box)
         }
-        box = document.createElement('div')
-        box.classList.add('box')
-        box.innerHTML = number
-        elContainer.appendChild(box)
+        
     }
 
     return myarray;
